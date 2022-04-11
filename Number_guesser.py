@@ -1,0 +1,37 @@
+import random #importing random module 
+
+top_of_range = input("Type a number: ")
+
+if top_of_range.isdigit(): #method returns True if all the characters are digits, otherwise False
+    top_of_range = int(top_of_range)
+
+    if top_of_range <= 0:
+        print ("Please type a number larger than 0 next time.")
+        quit()
+
+else:
+    print ("Please type a number next time.")
+    quit()
+
+random_number = (random.randint(0, top_of_range))  # randrange does not inlude the last number in this case 11 but "randint" will include the upper most bound
+
+while True: 
+    guesses =+ 1
+    user_guess = input("Make a guess: ")
+    if user_guess.isdigit(): #method returns True if all the characters are digits, otherwise False
+        user_guess = int(user_guess)
+  
+    else:
+        print ("Please type a number next time.")
+        continue
+
+    if user_guess == random_number:
+        print("You got it!")
+        break
+
+    elif user_guess > random_number:
+        print("You were above the number!")
+    else:
+        print("You were below the number!")       
+
+print("You got it in", guesses, "guesses")
